@@ -1,5 +1,9 @@
 package com.incubyte;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class StringCalculator {
     public int add(String numbers) {
         if (numbers == null || numbers.isEmpty()) return 0;
@@ -18,12 +22,25 @@ public class StringCalculator {
         String[] parts = numbers.split(delimiterRegex);
 
         int sum = 0;
-        for (String p : parts) {
-            if (!p.isEmpty()) {
-                sum += Integer.parseInt(p);
+        List<Integer> negatives = new ArrayList<>();
+        for (String part : parts) {
+            if (part.trim().isEmpty()) continue;
+
+            int n = Integer.parseInt(part.trim());
+            if (n < 0) {
+                negatives.add(n);
+            } else if (n <= 1000) { // ignore numbers > 1000
+                sum += n;
             }
         }
 
+        if (!negatives.isEmpty()) {
+            throw new IllegalArgumentException(
+                    "Negatives not allowed: " + negatives.stream()
+                            .map(Object::toString)
+                            .collect(Collectors.joining(","))
+            );
+        }
         return sum;
     }
 }
