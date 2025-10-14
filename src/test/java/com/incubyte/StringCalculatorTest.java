@@ -27,6 +27,13 @@ public class StringCalculatorTest {
         assertEquals(3, calc.add("//;\n1;2"));
     }
 
+    @Test void negativesThrowExceptionWithList() {
+        var ex = assertThrows(IllegalArgumentException.class, () -> calc.add("1,-2,3,-5"));
+        assertTrue(ex.getMessage().contains("-2"));
+        assertTrue(ex.getMessage().contains("-5"));
+        assertTrue(ex.getMessage().toLowerCase().contains("negatives"));
+    }
+
 
 }
 
