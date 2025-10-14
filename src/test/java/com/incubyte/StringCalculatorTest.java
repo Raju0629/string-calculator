@@ -7,6 +7,9 @@ public class StringCalculatorTest {
     @Test void emptyStringReturnsZero() {
         assertEquals(0, calc.add(""));
     }
+    @Test void singleNumberReturnsValue() {
+        assertEquals(1, calc.add("1"));
+    }
 
 }
 
