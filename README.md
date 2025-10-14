@@ -31,5 +31,5 @@ This is a common kata (practice problem) for learning **TDD and clean code pract
 
 ---
 
-## 🏗 Project Structure
+
 
