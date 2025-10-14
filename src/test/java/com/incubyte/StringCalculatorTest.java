@@ -15,5 +15,10 @@ public class StringCalculatorTest {
         assertEquals(3, calc.add("1,2"));
     }
 
+    @Test void anyAmountOfNumbers() {
+        assertEquals(15, calc.add("1,2,3,4,5"));
+    }
+
+
 }
 
