@@ -5,7 +5,12 @@ public class StringCalculator {
         if (numbers == null || numbers.isEmpty()) return 0;
         if (!numbers.contains(",")) return Integer.parseInt(numbers);
 
-        throw new UnsupportedOperationException("Multiple numbers not implemented yet");
+
+            String[] parts = numbers.split(",");
+            int sum = 0;
+            for (String p : parts) sum += Integer.parseInt(p);
+            return sum;
+
 
     }
 }
