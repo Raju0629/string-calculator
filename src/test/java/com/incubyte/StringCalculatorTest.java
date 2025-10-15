@@ -34,6 +34,10 @@ public class StringCalculatorTest {
         assertTrue(ex.getMessage().toLowerCase().contains("negatives"));
     }
 
+    @Test void numbersGreaterThan1000Ignored() {
+        assertEquals(2, calc.add("2,1001"));
+    }
+
 
 }
 
