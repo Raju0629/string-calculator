@@ -37,14 +37,62 @@ Clone the repository
 git clone https://github.com/Raju0629/string-calculator.git
 cd string-calculator
 
-
-Run tests
+Run tests:
 
 mvn test
 
-
-Run build
+Run build:
 
 mvn clean install
+
+Example Usage:
+
+StringCalculator calc = new StringCalculator();
+
+System.out.println(calc.add(""));            // 0  
+System.out.println(calc.add("1"));           // 1  
+System.out.println(calc.add("1,2,3"));       // 6  
+System.out.println(calc.add("1\n2,3"));      // 6  
+System.out.println(calc.add("//;\n1;2;3"));  // 6  
+System.out.println(calc.add("//[***]\n1***2***3")); // 6
+
+⚙️ TDD Development Process
+
+Each step followed the Red → Green → Refactor cycle:
+
+Write a failing test (Red)
+
+Implement minimal code to pass (Green)
+
+Refactor and commit
+
+Branch strategy:
+
+main → stable production-ready code
+
+feature/add-tests → used for TDD incremental commits
+
+🧾 Git Workflow Summary
+# Create and switch to feature branch
+git checkout -b feature/add-tests
+
+# After implementing each step
+git add .
+git commit -m "test: add failing test for <feature>"
+git commit -m "feat: implement <feature>"
+git push origin feature/add-tests
+
+# After completing all steps
+# On GitHub: Create Pull Request -> Merge into main
+
+Final Notes
+
+All requirements from the String Calculator Kata have been implemented.
+
+All tests pass successfully (mvn test shows green).
+
+The repository demonstrates clean, incremental commits showing the TDD flow.
+
+
 
 
