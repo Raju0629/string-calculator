@@ -30,6 +30,21 @@ This is a common kata (practice problem) for learning **TDD and clean code pract
 - **Version Control:** Git & GitHub
 
 ---
+🧱 Project Setup
 
+Clone the repository
+
+git clone https://github.com/Raju0629/string-calculator.git
+cd string-calculator
+
+
+Run tests
+
+mvn test
+
+
+Run build
+
+mvn clean install
 
 
