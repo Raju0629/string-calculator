@@ -2,6 +2,8 @@ package com.incubyte;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class StringCalculator {
@@ -9,13 +11,26 @@ public class StringCalculator {
         if (numbers == null || numbers.isEmpty()) return 0;
         // Default delimiters: comma or newline
         String delimiterRegex = ",|\n";
+        // Handle multiple or multi-character custom delimiters: //[***][%%]\n1***2%%3
+        if (numbers.startsWith("//[")) {
+            int newlineIndex = numbers.indexOf('\n');
+            String delimSection = numbers.substring(2, newlineIndex);
+            numbers = numbers.substring(newlineIndex + 1);
 
-        // Custom delimiter support (e.g., //;\n1;2)
-        if (numbers.startsWith("//")) {
+            // Capture all delimiters inside brackets
+            Matcher m = Pattern.compile("\\[(.*?)]").matcher(delimSection);
+            List<String> delims = new ArrayList<>();
+            while (m.find()) {
+                delims.add(Pattern.quote(m.group(1)));
+            }
+            delimiterRegex = String.join("|", delims);
+        }
+        // Handle single Custom delimiter support (e.g., //;\n1;2)
+        else if (numbers.startsWith("//")) {
             int idx = numbers.indexOf('\n');
             String delim = numbers.substring(2, idx);
             numbers = numbers.substring(idx + 1);  // remove the delimiter line
-            delimiterRegex = java.util.regex.Pattern.quote(delim);
+            delimiterRegex = Pattern.quote(delim);
         }
 
         // Split using the delimiter(s)
