@@ -9,7 +9,7 @@ This is a common kata (practice problem) for learning **TDD and clean code pract
 
 ---
 
-## 📋 Features
+##  Features
 
 - Add numbers from a string input, e.g. `"1,2,3"` → `6`
 - Handle empty string input → returns `0`
@@ -21,7 +21,7 @@ This is a common kata (practice problem) for learning **TDD and clean code pract
 
 ---
 
-## 🛠 Technology Stack
+## Technology Stack
 
 - **Language:** Java 23
 - **Build Tool:** Maven
@@ -30,7 +30,7 @@ This is a common kata (practice problem) for learning **TDD and clean code pract
 - **Version Control:** Git & GitHub
 
 ---
-🧱 Project Setup
+ Project Setup
 
 Clone the repository
 
@@ -56,7 +56,7 @@ System.out.println(calc.add("1\n2,3"));      // 6
 System.out.println(calc.add("//;\n1;2;3"));  // 6  
 System.out.println(calc.add("//[***]\n1***2***3")); // 6
 
-⚙️ TDD Development Process
+TDD Development Process
 
 Each step followed the Red → Green → Refactor cycle:
 
@@ -72,7 +72,7 @@ main → stable production-ready code
 
 feature/add-tests → used for TDD incremental commits
 
-🧾 Git Workflow Summary
+Git Workflow Summary
 
 # Create and switch to feature branch
 git checkout -b feature/add-tests
@@ -85,6 +85,7 @@ git push origin feature/add-tests
 
 # After completing all steps
 # On GitHub: Create Pull Request -> Merge into main
+
 Final Notes
 
 All requirements from the String Calculator Kata have been implemented.
