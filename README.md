@@ -73,6 +73,7 @@ main → stable production-ready code
 feature/add-tests → used for TDD incremental commits
 
 🧾 Git Workflow Summary
+
 # Create and switch to feature branch
 git checkout -b feature/add-tests
 
@@ -84,7 +85,6 @@ git push origin feature/add-tests
 
 # After completing all steps
 # On GitHub: Create Pull Request -> Merge into main
-
 Final Notes
 
 All requirements from the String Calculator Kata have been implemented.
