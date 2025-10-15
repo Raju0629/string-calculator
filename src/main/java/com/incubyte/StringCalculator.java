@@ -41,6 +41,8 @@ public class StringCalculator {
                             .collect(Collectors.joining(","))
             );
         }
+
+
         return sum;
     }
 }

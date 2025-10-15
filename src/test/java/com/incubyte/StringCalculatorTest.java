@@ -38,6 +38,10 @@ public class StringCalculatorTest {
         assertEquals(2, calc.add("2,1001"));
     }
 
+    @Test void anyLengthDelimiter() {
+        assertEquals(6, calc.add("//[***]\n1***2***3"));
+    }
+
 
 }
 
